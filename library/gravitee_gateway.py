@@ -295,7 +295,7 @@ class AuthenticationWrapper(ApiGatewayWrapper):
         self.token = self.module.params.get('access_token')
 
     def exchange_token(self):
-        result = self.request('{}/auth/oauth2/exchange?token={}'.format(self.api_path, self.token), 'POST')['response_body']
+        result = self.request('{}/auth/oauth2/oauth2/exchange?token={}'.format(self.api_path, self.token), 'POST')['response_body']
         token = result['token']
         self.module.result['token'] = token
         return token
